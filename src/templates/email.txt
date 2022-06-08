@@ -1,0 +1,9 @@
+Total balance is: {{ total_balance }}
+
+{% for month, amount in number_of_transactions.items %}
+    - Number of transactions in {{ month }}: {{ amount }}
+{% endfor %}
+
+{% for kind, average in average_amount.items %}
+    - Average {{ kind|lower }} amount : {{ average|floatformat:-2 }}
+{% endfor %}

@@ -1,0 +1,16 @@
+{% if csv_files %}
+    <ul>
+    {% for file in csv_files %}
+        <li>
+            <a href="{% url 'process_csv' %}">{{ file }}</a>
+            <form action="{% url 'process_csv' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" value="{{ file }}" name="csv_file_path">
+                <input type="submit" value="Proccess file">
+            </form>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No csv_files available.</p>
+{% endif %}

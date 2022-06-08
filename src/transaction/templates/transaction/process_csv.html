@@ -1,0 +1,51 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'css/app.css' %}">
+    </head>
+    <body>
+        <br>
+        <div>
+            <img src="{{stori_logo_path}}" style="width: 50%;">
+            </div>
+        <h2>Account information</h2>
+
+        <h2>Total balance is: <bold>{{ total_balance }}</bold></h2>
+        <div>
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for month, amount in number_of_transactions.items %}
+                            <tr>
+                                <td>Number of transactions in {{ month }}: <bold>{{ amount }}</bold></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for kind, average in average_amount.items %}
+                        <tr>
+                            <td>Average {{ kind|lower }} amount : {{ average|floatformat:-2 }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

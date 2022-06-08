@@ -53,10 +53,13 @@ function lint {
   # Lint Python code
   cmd flake8 "${@}"
 }
-
+function test() {
+  # Run test
+  cmd pytest "$@"
+}
 function format {
   # Format Python code
-  cmd black . "${@}"
+  cmd ck . "${@}"
 }
 
 function secret {
